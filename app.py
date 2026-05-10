@@ -215,6 +215,23 @@ SML tags available:
     headless_optional_group.add_argument(cli_options[25], type=float, default=default_engine_settings[TTS_ENGINES['BARK']]['waveform_temp'], help=f"""(bark only, optional) Waveform Temperature for the model. 
     Default to config.json model.""")
     headless_optional_group.add_argument(cli_options[26], type=str, help=f'''(Optional) Path to the output directory. Default is set in ./lib/conf.py''')
+    # GPT-SoVITS specific arguments
+    headless_optional_group.add_argument('--gptsovits_api_url', type=str, default=default_engine_settings[TTS_ENGINES['GPT-SoVITS']]['api_url'],
+        help='''(gptsovits only, optional) GPT-SoVITS API URL. Default: http://127.0.0.1:9880''')
+    headless_optional_group.add_argument('--gptsovits_prompt_text', type=str, default='',
+        help='''(gptsovits only, optional) Transcription text of the reference audio for better voice cloning.''')
+    headless_optional_group.add_argument('--gptsovits_prompt_lang', type=str, default='zh',
+        help='''(gptsovits only, optional) Language of the prompt text. Default: zh''')
+    headless_optional_group.add_argument('--gptsovits_temperature', type=float, default=default_engine_settings[TTS_ENGINES['GPT-SoVITS']]['temperature'],
+        help='''(gptsovits only, optional) Temperature for sampling. Default: 1.0''')
+    headless_optional_group.add_argument('--gptsovits_top_k', type=int, default=default_engine_settings[TTS_ENGINES['GPT-SoVITS']]['top_k'],
+        help='''(gptsovits only, optional) Top-k sampling. Default: 15''')
+    headless_optional_group.add_argument('--gptsovits_top_p', type=float, default=default_engine_settings[TTS_ENGINES['GPT-SoVITS']]['top_p'],
+        help='''(gptsovits only, optional) Top-p sampling. Default: 1.0''')
+    headless_optional_group.add_argument('--gptsovits_speed_factor', type=float, default=default_engine_settings[TTS_ENGINES['GPT-SoVITS']]['speed_factor'],
+        help='''(gptsovits only, optional) Speed factor. Default: 1.0''')
+    headless_optional_group.add_argument('--gptsovits_repetition_penalty', type=float, default=default_engine_settings[TTS_ENGINES['GPT-SoVITS']]['repetition_penalty'],
+        help='''(gptsovits only, optional) Repetition penalty. Default: 1.35''')
     headless_optional_group.add_argument(cli_options[27], action='version', version=f'ebook2audiobook version {prog_version}', help='''Show the version of the script and exit''')
     headless_optional_group.add_argument(cli_options[28], action='store_true', help=argparse.SUPPRESS)
     headless_optional_group.add_argument(cli_options[29], action='store_true', help=argparse.SUPPRESS)

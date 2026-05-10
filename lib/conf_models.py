@@ -12,7 +12,8 @@ TTS_ENGINES = {
     "FAIRSEQ": "fairseq",
     "GLOWTTS": "glowtts",
     "TACOTRON2": "tacotron",
-    "YOURTTS": "yourtts"
+    "YOURTTS": "yourtts",
+    "GPT-SoVITS": "gptsovits"
 }
 
 TTS_VOICE_CONVERSION = {
@@ -215,5 +216,20 @@ default_engine_settings = {
         "voice": None,
         "voices": {"Machinella-5": "female-en-5", "ElectroMale-2": "male-en-2", 'Machinella-4': 'female-pt-4\n', 'ElectroMale-3': 'male-pt-3\n'},
         "rating": {"VRAM": 1, "CPU": 5, "RAM": 1, "Realism": 2}
+    },
+    TTS_ENGINES['GPT-SoVITS']: {
+        "languages": {"zho": "zh", "eng": "en", "jpn": "ja", "kor": "ko", "yue": "yue"},
+        "samplerate": 24000,
+        "voice": None,
+        "api_url": "http://127.0.0.1:9880",
+        "prompt_text": "",
+        "prompt_lang": "zh",
+        "top_k": 15,
+        "top_p": 1.0,
+        "temperature": 1.0,
+        "speed_factor": 1.0,
+        "repetition_penalty": 1.35,
+        "seed": -1,
+        "rating": {"VRAM": 4, "CPU": 2, "RAM": 4, "Realism": 5}
     }
 }
